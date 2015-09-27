@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20150926114842) do
     t.string   "year"
     t.integer  "cd_number"
     t.string   "genre"
-    t.integer  "tracks"
+    t.integer  "tracks_num"
     t.string   "label"
     t.string   "image"
     t.string   "listen"
