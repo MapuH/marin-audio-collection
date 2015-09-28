@@ -1,25 +1,21 @@
-<div class="container-fluid">
-  <div class="row">
-  	<div class="text-center">
-	    <h1>Listing Albums</h1>
-		<p class="lead">Won't use <a href="http://haml.info" target="_blank">HAML</a> at this stage!</p>
-	</div>
-  </div>
+<div class="w3-container w3-center">
+  <h3>Listing Albums</h3>	
 </div>
 
-<div class="container">
+
+<div class="w3-row-padding">
 	<% @albums.each do |album| %>
-	<div class="row">
-		<div class="col-md-6">
-			<h3><%= album.title %></h3>
-			<p>Artist: <%= album.artist %></p>
-			<p>Released: <%= album.year %></p>
-			<p>Style: <%= album.genre %></p>
-			<p>Tracks: <%= album.tracks_num %></p>
-			<p>Label: <%= album.label %></p>
-		</div>
-		<div class="col-md-6">
-			<div class="center-block"><%= link_to image_tag(album.image, :class => "img-responsive"), album_path(album) %></div>
+	<div class="w3-third">
+		<div class="w3-card-4 w3-margin-bottom">
+			<%= link_to image_tag(album.image, :style => "width:100%"), album_path(album) %>
+			<div class="w3-container" style="min-height:350px">
+				<h5><%= link_to album.title.upcase, album_path(album) %></h5>
+				<p>Artist: <strong><%= album.artist %></strong></p>
+				<p>Released: <strong><%= album.year %></strong></p>
+				<p>Style: <strong><%= album.genre %></strong></p>
+				<p>Tracks: <strong><%= album.tracks_num %></strong></p>
+				<p>Label: <strong><%= album.label %></strong></p>
+			</div>
 		</div>
 	</div>
 	<% end %>

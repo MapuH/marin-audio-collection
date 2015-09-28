@@ -2,41 +2,66 @@
 <html>
 <head>
   <title>MarinAudioCollection</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'http://www.w3schools.com/lib/w3.css' %>
+  <%= stylesheet_link_tag 'http://www.w3schools.com/w3css/w3-theme-deep-purple.css' %>
+  <%= stylesheet_link_tag 'http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">MarinAudioCollection</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">            
-        </div><!--/.navbar-collapse -->
-      </div>
-    </nav>
-
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <h1>Hello, Rails!</h1>
-        <p>This is a test Rails app to get me started with the Ruby on Rails framework.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
-      </div>
-    </div>
-
-
 <body>
 
+<!-- Side Navigation -->
+<nav class="w3-sidenav w3-white w3-card-2 w3-animate-left" style="display:none">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-closenav w3-xxxlarge w3-text-theme">Close &times;</a>
+  <a href="javascript:void(0)">Link 1</a>   
+  <a href="javascript:void(0)">Link 2</a>   
+  <a href="javascript:void(0)">Link 3</a>   
+  <a href="javascript:void(0)">Link 4</a>   
+  <a href="javascript:void(0)">Link 5</a>   
+</nav>
+
+<!-- Header -->
+<header class="w3-container w3-theme w3-padding" id="myHeader">
+  <i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-opennav"></i> 
+  <div class="w3-center">
+  <h5>HELLO, RAILS!</h5>
+  <h1 class="w3-animate-bottom">MARIN'S AUDIO COLLECTION</h1>
+  <h5>A TEST RAILS PROJECT<br><br></h5>
+  </div>
+</header>
+
 <%= yield %>
+
+<!-- Footer -->
+<footer class="w3-container w3-theme-dark">
+  <h3>Footer</h3>
+  <p>Remember to check out our&nbsp;&nbsp;<a href="w3css_references.asp" class="w3-btn w3-red">W3.CSS Reference</a>
+  <div style="position:relative;bottom:55px;" class="w3-tooltip w3-right">
+    <span class="w3-text w3-theme-dark">Go To Top</span>&nbsp;   
+    <a class="w3-text-white" href="#myHeader"><span class="w3-xlarge">
+    <i class="fa fa-chevron-circle-up"></i></span></a>
+  </div>
+
+  </p>
+</footer>
+
+<!-- Script for Side Navigation -->
+<script>
+function w3_open() {
+    document.getElementsByClassName("w3-sidenav")[0].style.width = "100%";
+    document.getElementsByClassName("w3-sidenav")[0].style.textAlign = "center";
+    document.getElementsByClassName("w3-sidenav")[0].style.fontSize = "50px";
+    document.getElementsByClassName("w3-sidenav")[0].style.paddingTop = "10%";
+    document.getElementsByClassName("w3-sidenav")[0].style.display = "block";
+    document.getElementsByClassName("w3-sidenav")[0].style.opacity = "0.9";
+}
+function w3_close() {
+    document.getElementsByClassName("w3-sidenav")[0].style.display = "none";
+}
+</script>
+
+<script src="http://www.w3schools.com/lib/w3codecolors.js"></script> 
 
 </body>
 </html>
