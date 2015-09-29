@@ -1,2 +1,58 @@
-<h1>Listing albums</h1>
-<p>Find me in app/views/albums/show.html.erb</p>
+<div class="w3-row-padding w3-margin-top">
+	<div class="w3-quarter">
+		<div class="w3-card-4"><%= image_tag(@album.image, :style => "width:100%") %></div>
+	</div>
+	<div class="w3-quarter">
+		<h4><strong><%= @album.title %></strong> - <%= @album.artist %></h3>
+		<table class="w3-table">
+		<tr>
+			<td>Released:</td>
+			<td><%= @album.year %></td>
+		</tr>
+		<tr>
+			<td>Style:</td>
+			<td><%= @album.genre %></td>
+		</tr>
+		<tr>
+			<td>Tracks:</td>
+			<td><%= @album.tracks_num %></td>
+		</tr>
+		<tr>
+			<td>Label:</td>
+			<td><%= @album.label %></td>
+		</tr>
+		</table>
+		<div class="w3-center w3-margin-64">
+			<a class="w3-btn w3-deep-purple" href="<%= @album.listen %>" target="_blank"><i class="fa fa-youtube-play"></i> Play it on YouTube</a>
+		</div>
+	</div>
+</div>
+
+<br>
+
+<div class="w3-row-padding">
+	<div class="w3-half">
+	<table class="w3-table w3-striped">
+	<thead>
+	<tr>
+		<th>#</th>
+		<th>Track</th>
+		<th></th>
+	</tr>
+	</thead>
+	<tbody>
+	<% @tracks.each.with_index(1) do |track, index| %>
+	<tr>
+		<td><%= index %></td>
+		<td><%= track.name %></td>
+		<td><%= track.duration %></td>
+	</tr>
+	<% end %>
+	</tbody>
+	</table>
+
+	<div class="w3-center W3-margin-16">
+		<a class="w3-btn w3-deep-purple" href="<%= albums_path %>"><i class="fa fa-angle-double-left"></i> Back to Albums</a>
+	</div>
+	</div>
+</div>

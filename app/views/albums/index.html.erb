@@ -5,7 +5,7 @@
 
 <div class="w3-row-padding">
 	<% @albums.each do |album| %>
-	<div class="w3-third">
+	<div class="w3-quarter">
 		<div class="w3-card-4 w3-margin-bottom">
 			<%= link_to image_tag(album.image, :style => "width:100%"), album_path(album) %>
 			<div class="w3-container" style="min-height:350px">
