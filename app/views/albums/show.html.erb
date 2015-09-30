@@ -1,9 +1,12 @@
 <div class="w3-row-padding w3-margin-top">
 	<div class="w3-quarter">
 		<div class="w3-card-4"><%= image_tag(@album.image, :style => "width:100%") %></div>
+		<div class="w3-container" style="position:relative">
+  			<a href="<%= edit_album_path(@album) %>" class="w3-btn-floating w3-deep-purple" title="Edit details" style="position:absolute;top:-28px;right:10px;z-index:0;"><i class="fa fa-edit"></i></a>
+	</div>
 	</div>
 	<div class="w3-quarter">
-		<h4><strong><%= @album.title %></strong> - <%= @album.artist %></h3>
+		<h4><strong><%= @album.title %></strong> &ndash; <%= @album.artist %></h3>
 		<table class="w3-table">
 		<tr>
 			<td>Released:</td>
@@ -37,7 +40,7 @@
 	<tr>
 		<th>#</th>
 		<th>Track</th>
-		<th></th>
+		<th>Duration</th>
 	</tr>
 	</thead>
 	<tbody>
