@@ -6,10 +6,10 @@
 <div class="w3-row-padding">
 	<% @albums.each do |album| %>
 	<div class="w3-quarter">
-		<div class="w3-card-4 w3-margin-bottom">
+		<div class="w3-card-4 w3-margin-bottom" id="album_<%= album.id %>">
 			<%= link_to image_tag(album.image, :style => "width:100%"), album_path(album) %>
 			<div class="w3-container" style="min-height:350px">
-				<h5><%= link_to album.title.upcase, album_path(album) %></h5>
+				<h5><%= link_to album.title.upcase, album_path(album), style: "text-decoration:none;" %></h5>
 				<p>Artist: <strong><%= album.artist %></strong></p>
 				<p>Released: <strong><%= album.year %></strong></p>
 				<p>Style: <strong><%= album.genre %></strong></p>
@@ -19,4 +19,8 @@
 		</div>
 	</div>
 	<% end %>
+</div>
+
+<div class="w3-container w3-center">
+  <a class="w3-btn w3-deep-purple" href="<%= new_album_path %>">Add new album</a>	
 </div>

@@ -8,6 +8,19 @@ class AlbumsController < ApplicationController
   	@tracks = @album.tracks
   end
 
+  def new
+  	@album = Album.new
+  end
+
+  def create
+    @album = Album.new(album_params)
+    if @album.save
+    	redirect_to albums_path
+    else
+      render 'new'
+    end
+  end
+
   def edit
   	@album = Album.find(params[:id])
   end
@@ -19,6 +32,13 @@ class AlbumsController < ApplicationController
   	else
   		render "edit"
   	end
+  end
+
+  def destroy
+  	@album = Album.find(params[:id])
+  	@album.destroy
+  	flash[:success] = "Album deleted"
+  	redirect_to albums_url
   end
 
   private

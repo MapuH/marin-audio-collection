@@ -1,35 +1,6 @@
 <div class="w3-row-padding w3-margin-top">
-	<div class="w3-quarter">
-		<div class="w3-card-4"><%= image_tag(@album.image, :style => "width:100%") %></div>
-	</div>
-	<div class="w3-quarter">
-		<h4><strong><%= @album.title %></strong> &ndash; <%= @album.artist %></h3>
-		<table class="w3-table">
-		<tr>
-			<td>Released:</td>
-			<td><%= @album.year %></td>
-		</tr>
-		<tr>
-			<td>Style:</td>
-			<td><%= @album.genre %></td>
-		</tr>
-		<tr>
-			<td>Tracks:</td>
-			<td><%= @album.tracks_num %></td>
-		</tr>
-		<tr>
-			<td>Label:</td>
-			<td><%= @album.label %></td>
-		</tr>
-		</table>
-		<div class="w3-center w3-margin-64">
-			<a class="w3-btn w3-deep-purple" href="<%= @album.listen %>" target="_blank"><i class="fa fa-youtube-play"></i> Play it on YouTube</a>
-		</div>
-	</div>
-</div>
-
-<div class="w3-row-padding w3-margin-top">
-    <%= form_tag({controller: "albums", action: "update"}, method: "patch", class: "w3-container w3-half") do %>
+    <h2>Add new album</h2>
+    <%= form_tag({controller: "albums", action: "create"}, method: "post", class: "w3-container w3-half") do %>
     <div class="w3-group">
     <%= text_field_tag "album[title]", @album.title, {class: "w3-input", style: "width:90%", required: true} %>
     <%= label_tag :title, nil, class: "w3-label" %>
@@ -66,6 +37,6 @@
     <%= url_field_tag "album[listen]", @album.listen, {class: "w3-input", style: "width:90%", required: true} %>
     <%= label_tag :listen, "Link to album on YouTube", class: "w3-label" %>
     </div>
-    <button class="w3-btn w3-deep-purple" type="submit" name="commit" value="Save changes" data-confirm="Are you sure?">Save changes</button>  
+    <button class="w3-btn w3-deep-purple" type="submit" name="commit" value="Create album" data-confirm="Are you sure?">Create album</button>  
     <% end %>
 </div>

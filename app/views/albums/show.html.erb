@@ -3,7 +3,10 @@
 		<div class="w3-card-4"><%= image_tag(@album.image, :style => "width:100%") %></div>
 		<div class="w3-container" style="position:relative">
   			<a href="<%= edit_album_path(@album) %>" class="w3-btn-floating w3-deep-purple" title="Edit details" style="position:absolute;top:-28px;right:10px;z-index:0;"><i class="fa fa-edit"></i></a>
-	</div>
+		</div>
+		<div class="w3-container w3-text-deep-purple">
+			<i class="fa fa-trash"></i>&nbsp;<%= link_to "Delete album", @album, method: :delete, data: { confirm: "Are you sure? This action can't be reversed!" }, style: "text-decoration:none;" %>
+		</div>
 	</div>
 	<div class="w3-quarter">
 		<h4><strong><%= @album.title %></strong> &ndash; <%= @album.artist %></h3>
@@ -54,8 +57,10 @@
 	</tbody>
 	</table>
 
-	<div class="w3-center W3-margin-16">
-		<a class="w3-btn w3-deep-purple" href="<%= albums_path %>"><i class="fa fa-angle-double-left"></i> Back to Albums</a>
+	<br>
+
+	<div class="w3-left W3-margin-16">
+		<a class="w3-btn w3-deep-purple" href="<%= albums_path %>#album_<%= @album.id %>"><i class="fa fa-angle-double-left"></i> Back to Albums</a>
 	</div>
 	</div>
 </div>
