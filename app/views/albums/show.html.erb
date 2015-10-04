@@ -44,6 +44,7 @@
 		<th>#</th>
 		<th>Track</th>
 		<th>Duration</th>
+		<th></th>
 	</tr>
 	</thead>
 	<tbody>
@@ -51,16 +52,81 @@
 	<tr>
 		<td><%= index %></td>
 		<td><%= track.name %></td>
-		<td><%= track.duration %></td>
+		<td style="width:15%;"><%= track.duration %></td>
+		<td style="width:10%; text-align:right;">
+			<a href="#edit_track<%= index %>" title="Edit track"><i class='fa fa-edit'></i></a>
+			&nbsp;&nbsp;
+			<%= link_to destroy_track_album_path(@album, track_id: track.id), method: :delete, data: { confirm: "Are you sure?" } do %>
+				<i class='fa fa-close' title='Remove track'></i>
+			<% end %>
+		</td>
 	</tr>
+	<!-- Edit Track Modal -->
+	<div id="edit_track<%= index %>" class="w3-modal">
+		<div class="w3-modal-dialog">
+			<div class="w3-modal-content w3-card-8">
+				<header class="w3-container w3-theme"> 
+		        	<a href="#" class="w3-closebtn">&times;</a>
+		        	<h4>Edit track details</h4>
+		        </header>
+		        <div class="w3-padding">
+		      	<%= form_for track, :url => update_track_album_path(@album, track_id: track.id) do |f| %>
+		      	<div class="w3-group">
+				<%= f.text_field :name, class: "w3-input", style: "width:90%", required: true %>
+				<%= f.label :title, class: "w3-label" %>
+				</div>
+				<div class="w3-group">
+				<%= f.text_field :duration, class: "w3-input", maxlength: 5, style: "width:90%", required: true %>
+				<%= f.label :duration, class: "w3-label" %>
+				</div>
+				<button class="w3-btn w3-deep-purple" type="submit" name="commit" value="Save changes">Save track details</button>
+				<% end %>
+		        </div>
+			</div>
+		</div>
+	</div>
 	<% end %>
 	</tbody>
 	</table>
 
 	<br>
 
-	<div class="w3-left W3-margin-16">
-		<a class="w3-btn w3-deep-purple" href="<%= albums_path %>#album_<%= @album.id %>"><i class="fa fa-angle-double-left"></i> Back to Albums</a>
+	<div class="w3-row-padding">
+		<div class="w3-left w3-margin-16">
+			<a class="w3-btn w3-deep-purple" href="<%= albums_path %>#album_<%= @album.id %>"><i class="fa fa-angle-double-left"></i> Back to Albums</a>
+		</div>
+		<div class="w3-right w3-margin-16">
+		<% if @album.tracks.count < @album.tracks_num %>
+			<a class="w3-btn w3-deep-purple" href="#new_track">Add Track</a>
+		<% else %>
+			<a class="w3-btn w3-dark-grey" title="Album already has <%= @album.tracks_num %> tracks!">Add Track</a>
+		<% end %>
+		</div>
 	</div>
 	</div>
+</div>
+
+<!-- Add Track Modal -->
+<div id="new_track" class="w3-modal">
+  <div class="w3-modal-dialog">
+    <div class="w3-modal-content w3-card-8">
+      <header class="w3-container w3-theme"> 
+        <a href="#" class="w3-closebtn">&times;</a>
+        <h4>Add track to album <strong><%= @album.title %></strong></h4>
+      </header>
+      <div class="w3-padding">
+      	<%= form_for @track= Track.new, :url => create_track_album_path(@album) do |f| %>
+      	<div class="w3-group">
+		<%= f.text_field :name, class: "w3-input", style: "width:90%", required: true %>
+		<%= f.label :title, class: "w3-label" %>
+		</div>
+		<div class="w3-group">
+		<%= f.text_field :duration, class: "w3-input", maxlength: 5, style: "width:90%", required: true %>
+		<%= f.label :duration, class: "w3-label" %>
+		</div>
+		<button class="w3-btn w3-deep-purple" type="submit" name="commit" value="Create track">Add track</button>
+		<% end %>
+      </div>
+    </div>
+  </div>
 </div>

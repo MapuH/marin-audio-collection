@@ -1,4 +1,5 @@
 class AlbumsController < ApplicationController
+
   def index
   	@albums = Album.all.order(:artist, :year)
   end
@@ -41,8 +42,36 @@ class AlbumsController < ApplicationController
   	redirect_to albums_url
   end
 
+  def create_track
+  	@album = Album.find(params[:id])
+  	@track = @album.tracks.new(track_params)
+  	if @track.save
+  		redirect_to(:action => "show", :id => @album.id)
+  	end
+  end
+
+  def update_track
+  	@album = Album.find(params[:id])
+  	@track = @album.tracks.find(params[:track_id])
+  	if @track.update_attributes(track_params)
+  		redirect_to(:action => "show", :id => @album.id)
+  	end
+  end
+
+  def destroy_track
+  	@album = Album.find(params[:id])
+  	@track = @album.tracks.find(params[:track_id])
+  	@track.destroy
+  	redirect_to(:action => "show", :id => @album.id)
+  end
+
   private
   def album_params
-  	params.require(:album).permit(:title, :artist, :year, :cd_number, :genre, :tracks_num, :label, :image, :listen)
+  	params.require(:album).permit(:title, :artist, :year, :cd_number, :genre, :tracks_num, :label, :image, :listen, tracks_attributes: [:name, :duration])
   end
+
+  def track_params
+  	params.require(:track).permit(:name, :duration)
+  end
+
 end
