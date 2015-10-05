@@ -61,6 +61,11 @@
 			<% end %>
 		</td>
 	</tr>
+	<% end %>
+	</tbody>
+	</table>
+
+	<% @tracks.each.with_index(1) do |track, index| %>
 	<!-- Edit Track Modal -->
 	<div id="edit_track<%= index %>" class="w3-modal">
 		<div class="w3-modal-dialog">
@@ -86,8 +91,6 @@
 		</div>
 	</div>
 	<% end %>
-	</tbody>
-	</table>
 
 	<br>
 
