@@ -1,0 +1,17 @@
+<div class="w3-padding">
+<h2>Login</h2>
+<% if @invalid_details %>
+<p class="w3-text-red">Combination of email and password is invalid or does not exist!</p><br>
+<% end %>
+	<%= form_for(:session, url: login_path) do |f| %>
+	<div class="w3-group">
+		<%= f.email_field :email, class: "w3-input", style: "width:40%", required: true %>
+		<%= f.label :email, class: "w3-label" %>
+	</div>
+	<div class="w3-group">
+		<%= f.password_field :password, class: "w3-input", style: "width:40%", required: true %>
+		<%= f.label :password, class: "w3-label" %>
+	</div>
+		<button class="w3-btn w3-deep-purple" type="submit" name="commit" value="Log In">Log In</button>
+	<% end %>
+</div>
