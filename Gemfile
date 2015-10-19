@@ -29,6 +29,11 @@ gem 'rails-boilerplate'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# Use ActiveAdmin
+gem 'activeadmin', '~> 1.0.0.pre1'
+
+gem 'devise', '~> 3.5', '>= 3.5.2'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
