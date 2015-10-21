@@ -8,7 +8,7 @@ class AlbumsController < ApplicationController
 
   def show
     @album = Album.find(params[:id])
-    @tracks = @album.tracks
+    @tracks = @album.tracks.order(:id)
   end
 
   def new
