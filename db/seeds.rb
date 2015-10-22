@@ -523,5 +523,3 @@ Track.create(name: "One Love (Edit)", duration: "3:53", album_id: a30.id)
 Track.create(name: "3 Kilos", duration: "7:26", album_id: a30.id)
 Track.create(name: "Skylined", duration: "5:58", album_id: a30.id)
 Track.create(name: "Claustrophobic Sting", duration: "7:12", album_id: a30.id)
-
-AdminUser.create!(email: 'm.s.marinov@gmail.com', password: 'parola86', password_confirmation: 'parola86')
