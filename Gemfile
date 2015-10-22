@@ -36,6 +36,8 @@ gem 'activeadmin', '~> 1.0.0.pre1'
 
 gem 'devise', '~> 3.5', '>= 3.5.2'
 
+gem 'rails_12factor', group: :production
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -55,3 +57,4 @@ group :development do
   gem 'spring'
 end
 
+ruby "2.1.2"
