@@ -1,28 +1,20 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+"MARIN'S AUDIO COLLECTION" is a simple Rails 4 test app utilizing "belongs_to" and "has_many" associations.
 
-Things you may want to cover:
+Rails 4.2.4
+Ruby 2.1.2
+Postgresql Database
+W3.css for styling
 
-* Ruby version
+The app displays a list of music albums by various artists.
 
-* System dependencies
+A simple signup/login functionality is added to let users register on the site. (NOTE: The Sign Up feature is currently commented out of the code due to security reasons)
 
-* Configuration
+Registered users can view details for an album, including all tracks that belong to it.
 
-* Database creation
+Admin users can edit and delete the albums and their corresponding tracks. They can also add new albums and tracks.
 
-* Database initialization
+ActiveAdmin panel is added for easier management of the records in the database.
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+App deployed to Heroku at http://marinaudiocollection.herokuapp.com/
