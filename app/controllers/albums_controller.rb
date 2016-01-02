@@ -1,5 +1,4 @@
 class AlbumsController < ApplicationController
-  before_action :require_user, only: :show
   before_action :require_admin, only: [:new, :edit, :destroy, :create_track, :update_track, :destroy_track]
 
   def index
